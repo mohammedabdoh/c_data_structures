@@ -1,37 +1,34 @@
-#include <cstdio>
-#include <stdio.h>
-#include <stdlib.h>
+/*
+ * Copyright 2021<Mohammed Abdoh>
+ */
 
-using namespace std;
+#include <cstdio>
+
+using std::printf;
 
 template<class T>
-class Rectangle
-{
-    private:
-        T length;
-        T height;
+class Rectangle {
+ private:
+    T length;
+    T height;
 
-    public:
-        Rectangle<T>(T l, T h)
-        {
-            length = l;
-            height = h;
-        }
+ public:
+    Rectangle<T>(T l, T h) {
+        length = l;
+        height = h;
+    }
 
-        T area()
-        {
-            return length * height;
-        }
+    T area() {
+        return length * height;
+    }
 
-        void changeLength(T newLength)
-        {
-            length = newLength;
-        }
+    void changeLength(T newLength) {
+        length = newLength;
+    }
 };
 
 
-int main()
-{    
+int main() {
     Rectangle<int> rect(8, 8);
     printf("%d\n", rect.area());
     return 0;
