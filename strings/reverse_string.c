@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include "string.h"
+
 
 int str_length(char str[]) {
     
@@ -13,11 +14,11 @@ int str_length(char str[]) {
     return total;
 }
 
-const char* reverseString(char str[]) {
+void reverseString(char str[]) {
     
     for(int i = 0, ii = str_length(str) - 1; i < str_length(str); i++, ii--) {
         
-        if(i == ii) {
+        if(i >= ii) {
             break;
         }
 
@@ -25,16 +26,39 @@ const char* reverseString(char str[]) {
         str[i] = str[ii];
         str[ii] = tmp;
     }
-
-    return str;
 }
 
-int isPalendromeString(char str[]) {
-    
-    return 1;
+int stringIsEqual(char str1[], char str2[]) {
+    int i, j;
+
+    for(i = 0, j = 0; str1[i] != '\0' && str2[j] != '\0'; i++, j++) {
+        if(str1[i] != str2[j])
+          break;
+    }
+
+    if(str1[i] == str2[j]) {
+        return 1;
+    }
+
+    return 0;
 }
 
-int main() { 
-    printf("%s", reverseString("Mohammed"));
+int main() {
+    char str[20];
+    char reversedStr[20];
+
+    printf("Please enter a string: ");
+    gets(str);
+
+    strcpy(reversedStr, str);
+
+    reverseString(reversedStr);
+
+    if(stringIsEqual(str, reversedStr)) {
+      printf("String is palindrome\n");
+    } else {
+      printf("String is not palindrome\n");
+    }
+
     return 0;
 }
