@@ -2,7 +2,10 @@
 
 int main() {
 
-    char name[] = "mohammed";
+    char name[20];
+
+    printf("Enter a string: ");
+    gets(name);
     
     int i;
     int hash[26] = {0};
@@ -13,7 +16,7 @@ int main() {
 
     for (int j = 0; j < 26; ++j) {
         if(hash[j] > 1) {
-            printf("Found that letter %c has %d duplicates", j + 97, hash[j]);
+            printf("Found that letter %c has %d duplicates\n", j + 97, hash[j]);
         }
     }
 
