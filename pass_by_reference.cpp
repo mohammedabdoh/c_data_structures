@@ -2,9 +2,7 @@
  * Copyright@2021 <Mohammed Abdoh>
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
 
 void swap(int &a, int &b) {
     int temp;

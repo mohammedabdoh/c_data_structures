@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(new C)
-
-set(CMAKE_C_STANDARD 11)
+project(new C CXX)
 
 add_executable(array_of_structs array_of_structs.c)
 add_executable(arrays_as_parameters arrays_as_parameters.c)
@@ -11,6 +9,9 @@ add_executable(pointer_to_structure pointer_to_structure.c)
 add_executable(pointers pointers.c)
 add_executable(struct_and_functions struct_and_functions.c)
 add_executable(bitwise_operations bitwise_operations.c)
+add_executable(pass_by_reference pass_by_reference.cpp)
+add_executable(rectangle rectangle.cpp)
+add_executable(rectangle_template rectangle_template.cpp)
 
 # recursion
 add_executable(sum recursion/sum.c)
@@ -37,3 +38,4 @@ add_executable(string_is_anagram_using_bitwise strings/string_is_anagram_using_b
 
 # linked list
 add_executable(linked_list linked-list/linked_list.c)
+add_executable(linked_list_cpp linked-list/linked_list.cpp)
