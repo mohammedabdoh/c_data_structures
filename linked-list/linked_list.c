@@ -54,6 +54,14 @@ void insert_node_after_node(node_t * node_to_insert_after, node_t *node_to_inser
     node_to_insert_after->nextNode = node_to_insert;
 }
 
+void delete_node(node_t *head, node_t *node_to_delete) {
+    node_t *tmp = head;
+    while(tmp->nextNode != node_to_delete) {
+        tmp = tmp->nextNode;
+    }
+    tmp->nextNode = node_to_delete->nextNode;
+}
+
 int main() {
 
     node_t *head = NULL;
@@ -67,6 +75,9 @@ int main() {
     print_nodes(head);
 
     insert_node_at_tail(head, create_new_node(100));
+    print_nodes(head);
+
+    delete_node(head, find_node(head, 2));
     print_nodes(head);
 
     if(NULL != find_node(head, 6)) {
