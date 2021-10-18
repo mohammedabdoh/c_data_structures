@@ -6,9 +6,9 @@ public:
     int data;
     Node *nextNode;
         
-    Node(int value) {
+    explicit Node(int value) {
         data = value;
-        nextNode = NULL;
+        nextNode = nullptr;
     }
 };
 
@@ -19,7 +19,7 @@ public:
         
     LinkedList()
     {
-        head = NULL;
+        head = nullptr;
     }
         
     void prepend(Node *nodeToInsert)
@@ -28,22 +28,22 @@ public:
         this->head = nodeToInsert;
     }
         
-    void append(Node *nodeToInsert)
+    void append(Node *nodeToInsert) const
     {
         Node *currentNode = this->head;
-        while(currentNode->nextNode != NULL) {
+        while(currentNode->nextNode != nullptr) {
             currentNode = currentNode->nextNode;
         }
         currentNode->nextNode = nodeToInsert;
     }
         
-    void insertAfterNode(Node *nodeToInsertAfter, Node *nodeToInsert)
+    static void insertAfterNode(Node *nodeToInsertAfter, Node *nodeToInsert)
     {
         nodeToInsert->nextNode = nodeToInsertAfter->nextNode;
         nodeToInsertAfter->nextNode = nodeToInsert;
     }
         
-    void deleteNode(Node *nodeToDelete)
+    void deleteNode(Node *nodeToDelete) const
     {
         Node *currentNode = this->head;
         while(currentNode->nextNode != nodeToDelete) {
@@ -52,23 +52,23 @@ public:
         currentNode->nextNode = nodeToDelete->nextNode;
     }
         
-    Node *findNode(int value)
+    Node *findNode(int value) const
     {
         Node *currentNode = this->head;
-        while(currentNode->nextNode != NULL) {
+        while(currentNode->nextNode != nullptr) {
             if(currentNode->data == value) {
                 return currentNode;
             }
             currentNode = currentNode->nextNode;
         }
-        return NULL;
+        return nullptr;
     }
         
-    void print()
+    void print() const
     {
         Node *currentNode = this->head;
         printf("head -> ");
-        while(currentNode != NULL) {
+        while(currentNode != nullptr) {
             printf("%d -> ", currentNode->data);
             currentNode = currentNode->nextNode;
         }
@@ -84,7 +84,7 @@ int main() {
     }
     
     linkedList.append(new Node(100));
-    linkedList.insertAfterNode(linkedList.findNode(3), new Node(102));
+    LinkedList::insertAfterNode(linkedList.findNode(3), new Node(102));
     linkedList.deleteNode(linkedList.findNode(1));
     
     linkedList.print();
