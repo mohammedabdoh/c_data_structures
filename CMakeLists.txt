@@ -34,3 +34,6 @@ add_executable(reverse_string strings/reverse_string.c)
 add_executable(find_duplicates_using_bitwise strings/find_duplicates_using_bitwise.c)
 add_executable(string_is_anagram_using_hash_table strings/string_is_anagram_using_hash_table.c)
 add_executable(string_is_anagram_using_bitwise strings/string_is_anagram_using_bitwise.c)
+
+# linked list
+add_executable(linked_list linked-list/linked_list.c)
