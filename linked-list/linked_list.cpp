@@ -18,46 +18,61 @@ public:
 template<class T>
 class LinkedList
 {
-public:
+private:
     Node<T> *head;
-        
+    int size;
+
+public:
     LinkedList()
     {
         head = nullptr;
+        size = 0;
     }
         
     void prepend(Node<T> *nodeToInsert)
     {
         nodeToInsert->nextNode = this->head;
         this->head = nodeToInsert;
+        size++;
     }
         
-    void append(Node<T> *nodeToInsert) const
+    void append(Node<T> *nodeToInsert)
     {
         Node<T> *currentNode = this->head;
         while(currentNode->nextNode != nullptr) {
             currentNode = currentNode->nextNode;
         }
         currentNode->nextNode = nodeToInsert;
+        size++;
     }
         
-    static void insertAfterNode(Node<T> *nodeToInsertAfter, Node<T> *nodeToInsert)
+    void insertAfterNode(Node<T> *nodeToInsertAfter, Node<T> *nodeToInsert)
     {
         nodeToInsert->nextNode = nodeToInsertAfter->nextNode;
         nodeToInsertAfter->nextNode = nodeToInsert;
+        size++;
     }
         
-    void deleteNode(Node<T> *nodeToDelete) const
+    void deleteNode(Node<T> *nodeToDelete)
     {
+        if(isEmpty()) {
+            return;
+        }
+
         Node<T> *currentNode = this->head;
         while(currentNode->nextNode != nodeToDelete) {
             currentNode = currentNode->nextNode;
         }
         currentNode->nextNode = nodeToDelete->nextNode;
+        size--;
     }
         
-    Node<T> *findNode(T value) const
+    Node<T> *findNode(T value)
     {
+        if(isEmpty()) {
+            return nullptr;
+        }
+
         Node<T> *currentNode = this->head;
         while(currentNode->nextNode != nullptr) {
             if(currentNode->data == value) {
@@ -66,6 +81,10 @@ public:
             currentNode = currentNode->nextNode;
         }
         return nullptr;
+    }
+
+    bool isEmpty() {
+        return this->head == nullptr;
     }
         
     void print() const
@@ -77,6 +96,11 @@ public:
             currentNode = currentNode->nextNode;
         }
         cout << "NULL\n";
+    }
+
+    int getSize()
+    {
+        return size;
     }
 };
 
@@ -90,9 +114,10 @@ int main() {
     }
     
     linkedList.append(new Node<int>(100));
-    LinkedList<int>::insertAfterNode(linkedList.findNode(3), new Node<int>(102));
+    linkedList.insertAfterNode(linkedList.findNode(3), new Node<int>(102));
     linkedList.deleteNode(linkedList.findNode(1));
-    
+
+    cout << "Size is: " << linkedList.getSize() << "\n";
     linkedList.print();
 
 
@@ -105,10 +130,18 @@ int main() {
     charLinkedList.prepend(new Node<char>('d'));
 
     charLinkedList.append(new Node<char>('e'));
-    LinkedList<char>::insertAfterNode(charLinkedList.findNode('b'), new Node<char>('f'));
+    charLinkedList.insertAfterNode(charLinkedList.findNode('b'), new Node<char>('f'));
     charLinkedList.deleteNode(charLinkedList.findNode('a'));
 
+    cout << "Size is: " << charLinkedList.getSize() << "\n";
     charLinkedList.print();
-    
+
+    // Empty linked list
+    LinkedList<int> emptyLinkedList;
+
+    if(emptyLinkedList.isEmpty()) {
+        cout << "List is empty\n";
+    }
+
     return 0;
 }
