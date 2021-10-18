@@ -30,6 +30,11 @@ class LinkedList<T>
 
     void append(Node<T> nodeToAppend)
     {
+        if(isEmpty()) {
+            prepend(nodeToAppend);
+            return;
+        }
+        
         Node<T> currentNode = head;
         
         while(currentNode.nextNode != null) {
@@ -43,6 +48,11 @@ class LinkedList<T>
 
     void insertAfterNode(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
     {
+        if(isEmpty()) {
+            prepend(nodeToInsert);
+            return;
+        }
+
         nodeToInsert.nextNode = nodeToInsertAfter.nextNode;
         nodeToInsertAfter.nextNode = nodeToInsert;
         size++;
@@ -55,6 +65,12 @@ class LinkedList<T>
         }
 
         Node<T> currentNode = head;
+
+        if(currentNode == nodeToDelete) {
+            head = head.nextNode;
+            return;
+        }
+
         while(currentNode.nextNode != nodeToDelete) {
             currentNode = currentNode.nextNode;
         }

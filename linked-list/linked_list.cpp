@@ -38,6 +38,11 @@ public:
         
     void append(Node<T> *nodeToInsert)
     {
+        if(isEmpty()) {
+            prepend(nodeToInsert);
+            return;
+        }
+
         Node<T> *currentNode = this->head;
         while(currentNode->nextNode != nullptr) {
             currentNode = currentNode->nextNode;
@@ -48,6 +53,11 @@ public:
         
     void insertAfterNode(Node<T> *nodeToInsertAfter, Node<T> *nodeToInsert)
     {
+        if(isEmpty()) {
+            prepend(nodeToInsert);
+            return;
+        }
+
         nodeToInsert->nextNode = nodeToInsertAfter->nextNode;
         nodeToInsertAfter->nextNode = nodeToInsert;
         size++;
@@ -59,7 +69,13 @@ public:
             return;
         }
 
-        Node<T> *currentNode = this->head;
+        Node<T> *currentNode = head;
+
+        if(currentNode == nodeToDelete) {
+            head = head->nextNode;
+            return;
+        }
+
         while(currentNode->nextNode != nodeToDelete) {
             currentNode = currentNode->nextNode;
         }
