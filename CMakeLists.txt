@@ -39,3 +39,5 @@ add_executable(string_is_anagram_using_bitwise strings/string_is_anagram_using_b
 # linked list
 add_executable(linked_list linked-list/linked_list.c)
 add_executable(linked_list_cpp linked-list/linked_list.cpp)
+add_executable(doubly_linked_list linked-list/doubly_linked_list.c)
+add_executable(doubly_linked_list_cpp linked-list/doubly_linked_list.cpp)
