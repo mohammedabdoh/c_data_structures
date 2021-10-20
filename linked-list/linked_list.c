@@ -18,6 +18,10 @@ void print_nodes(node_t *head) {
     printf("NULL\n");
 }
 
+int isEmpty(node_t *head) {
+    return head == NULL ? 1 : 0;
+}
+
 node_t *create_new_node(int value) {
     node_t *node = malloc(sizeof(node_t));
     node->value = value;
@@ -31,6 +35,10 @@ void insert_node_at_head(node_t **pointerToHead, node_t *node_to_insert) {
 }
 
 void insert_node_at_tail(node_t *head, node_t *node_to_insert) {
+    if(1 == isEmpty(head)) {
+        return;
+    }
+
     node_t *tmp = head;
     while(tmp->nextNode != NULL) {
         tmp = tmp->nextNode;
@@ -39,6 +47,10 @@ void insert_node_at_tail(node_t *head, node_t *node_to_insert) {
 }
 
 node_t *find_node(node_t *head, int value) {
+    if(1 == isEmpty(head)) {
+        return NULL;
+    }
+
     node_t *tmp = head;
     while(tmp->nextNode != NULL) {
         if(tmp->value == value) {
@@ -49,12 +61,20 @@ node_t *find_node(node_t *head, int value) {
     return NULL;
 }
 
-void insert_node_after_node(node_t * node_to_insert_after, node_t *node_to_insert) {
+void insert_node_after_node(node_t *node_to_insert_after, node_t *node_to_insert) {
+    if(1 == isEmpty(node_to_insert_after)) {
+        return;
+    }
+
     node_to_insert->nextNode = node_to_insert_after->nextNode;
     node_to_insert_after->nextNode = node_to_insert;
 }
 
 void delete_node(node_t *head, node_t *node_to_delete) {
+    if(1 == isEmpty(head)) {
+        return;
+    }
+
     node_t *tmp = head;
     while(tmp->nextNode != node_to_delete) {
         tmp = tmp->nextNode;
