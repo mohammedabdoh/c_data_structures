@@ -75,7 +75,7 @@ class LinkedList<T>
 
         Node<T> currentNode = head;
         
-        while(currentNode.nextNode != null) {
+        while(currentNode != null) {
             if(currentNode.data == value) {
                 return currentNode;
             }
@@ -119,9 +119,14 @@ class Main
             linkedList.prepend(new Node<Integer>(i+1));
         }
 
-        linkedList.append(new Node<Integer>(100));
+        linkedList.prepend(new Node<Integer>(100));
+        linkedList.append(new Node<Integer>(78));
         linkedList.insertAfterNode(linkedList.findNode(3), new Node<Integer>(102));
+        linkedList.insertAfterNode(linkedList.findNode(1), new Node<Integer>(11));
+        linkedList.insertAfterNode(linkedList.findNode(78), new Node<Integer>(101));
         linkedList.deleteNode(linkedList.findNode(1));
+        linkedList.deleteNode(linkedList.findNode(11));
+        linkedList.deleteNode(linkedList.findNode(101));
 
         System.out.println("Size is: " + linkedList.getSize() + "\n");
         linkedList.print();
