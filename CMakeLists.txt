@@ -43,3 +43,6 @@ add_executable(doubly_linked_list linked-list/doubly_linked_list.c)
 add_executable(doubly_linked_list_cpp linked-list/doubly_linked_list.cpp)
 add_executable(doubly_linked_list_with_tail linked-list/doubly_linked_list_with_tail.c)
 add_executable(doubly_linked_list_with_tail_cpp linked-list/doubly_linked_list_with_tail.cpp)
+
+#stack
+add_executable(stack_using_list stack/stack.c)
