@@ -52,3 +52,4 @@ add_executable(stack_using_array_cpp stack/stack_using_array.cpp)
 
 # queue
 add_executable(queue_using_array queue/queue_using_array.c)
+add_executable(queue_using_list queue/queue_using_list.c)
