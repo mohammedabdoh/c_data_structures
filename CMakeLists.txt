@@ -44,8 +44,11 @@ add_executable(doubly_linked_list_cpp linked-list/doubly_linked_list.cpp)
 add_executable(doubly_linked_list_with_tail linked-list/doubly_linked_list_with_tail.c)
 add_executable(doubly_linked_list_with_tail_cpp linked-list/doubly_linked_list_with_tail.cpp)
 
-#stack
+# stack
 add_executable(stack_using_list stack/stack.c)
 add_executable(stack_using_list_cpp stack/stack.cpp)
 add_executable(stack_using_array stack/stack_using_array.c)
 add_executable(stack_using_array_cpp stack/stack_using_array.cpp)
+
+# queue
+add_executable(queue_using_array queue/queue_using_array.c)
