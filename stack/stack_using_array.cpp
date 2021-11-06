@@ -34,7 +34,7 @@ public:
 
         T lastElement = storage[top];
         
-        storage[top] = 0;
+        storage[top] = T();
         top--;
 
         return lastElement;
