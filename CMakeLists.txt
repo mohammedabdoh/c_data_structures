@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.16)
 project(new C CXX)
 
 add_executable(array_of_structs array_of_structs.c)
@@ -55,3 +55,6 @@ add_executable(queue_using_array queue/queue_using_array.c)
 add_executable(queue_using_list queue/queue_using_list.c)
 add_executable(queue_using_array_cpp queue/queue_using_array.cpp)
 add_executable(queue_using_list_cpp queue/queue_using_list.cpp)
+
+# queue
+add_executable(binary_tree tree/binary_tree.c)
