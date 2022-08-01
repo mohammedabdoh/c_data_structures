@@ -2,15 +2,15 @@ package linked_list.java.singly_linked_list;
 
 public class SinglyLinkedList<T>
 {
-    SinglyLinkedListNode<T> head;
-    int size;
+    public SinglyLinkedListNode<T> head;
+    public int size;
 
-    SinglyLinkedList() {
+    public SinglyLinkedList() {
         head = null;
         size = 0;
     }
 
-    void prepend(SinglyLinkedListNode<T> nodeToPrepend)
+    public void prepend(SinglyLinkedListNode<T> nodeToPrepend)
     {
         nodeToPrepend.nextNode = head;
         
@@ -19,7 +19,7 @@ public class SinglyLinkedList<T>
         size++;
     }
 
-    void append(SinglyLinkedListNode<T> nodeToAppend)
+    public void append(SinglyLinkedListNode<T> nodeToAppend)
     {
         if(isEmpty()) {
             prepend(nodeToAppend);
@@ -37,7 +37,7 @@ public class SinglyLinkedList<T>
         size++;
     }
 
-    void insertAfterNode(SinglyLinkedListNode<T> nodeToInsertAfter, SinglyLinkedListNode<T> nodeToInsert)
+    public void insertAfterNode(SinglyLinkedListNode<T> nodeToInsertAfter, SinglyLinkedListNode<T> nodeToInsert)
     {
         if(isEmpty()) {
             prepend(nodeToInsert);
@@ -49,7 +49,7 @@ public class SinglyLinkedList<T>
         size++;
     }
 
-    void deleteNode(SinglyLinkedListNode<T> nodeToDelete)
+    public void deleteNode(SinglyLinkedListNode<T> nodeToDelete)
     {
         if(isEmpty()) {
             return;
@@ -69,7 +69,7 @@ public class SinglyLinkedList<T>
         size--;
     }
 
-    SinglyLinkedListNode<T> findNode(T value)
+    public SinglyLinkedListNode<T> findNode(T value)
     {
         if(isEmpty()) {
             return null;
@@ -87,12 +87,12 @@ public class SinglyLinkedList<T>
         return null;
     }
 
-    boolean isEmpty()
+    public boolean isEmpty()
     {
         return head == null;
     }
 
-    void print()
+    public void print()
     {
         SinglyLinkedListNode<T> currentNode = head;
         
@@ -106,7 +106,7 @@ public class SinglyLinkedList<T>
         System.out.print("NULL\n");
     }
 
-    int getSize() {
+    public int getSize() {
         return size;
     }
 }

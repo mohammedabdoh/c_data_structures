@@ -4,7 +4,7 @@ import linked_list.java.doubly_linked_list.DoublyLinkedListNode;
 
 public class DoublyLinkedListWithTailMain
 {
-    public static void main(String[] args) {
+    public static void run() {
 
         DoublyLinkedListWithTail<Integer> linkedList = new DoublyLinkedListWithTail<Integer>();
         

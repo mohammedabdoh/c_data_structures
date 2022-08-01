@@ -4,17 +4,17 @@ import linked_list.java.doubly_linked_list.DoublyLinkedListNode;
 
 public class DoublyLinkedListWithTail<T>
 {
-    DoublyLinkedListNode<T> head;
-    DoublyLinkedListNode<T> tail;
-    int size;
+    public DoublyLinkedListNode<T> head;
+    public DoublyLinkedListNode<T> tail;
+    public int size;
 
-    DoublyLinkedListWithTail() {
+    public DoublyLinkedListWithTail() {
         head = null;
         tail = null;
         size = 0;
     }
 
-    void prepend(DoublyLinkedListNode<T> nodeToPrepend)
+    public void prepend(DoublyLinkedListNode<T> nodeToPrepend)
     {
         if(isEmpty()) {
             head = nodeToPrepend;
@@ -32,7 +32,7 @@ public class DoublyLinkedListWithTail<T>
         size++;
     }
 
-    void append(DoublyLinkedListNode<T> nodeToAppend)
+    public void append(DoublyLinkedListNode<T> nodeToAppend)
     {
         if(isEmpty()) {
             prepend(nodeToAppend);
@@ -48,7 +48,7 @@ public class DoublyLinkedListWithTail<T>
         size++;
     }
 
-    void insertAfterNode(DoublyLinkedListNode<T> nodeToInsertAfter, DoublyLinkedListNode<T> nodeToInsert)
+    public void insertAfterNode(DoublyLinkedListNode<T> nodeToInsertAfter, DoublyLinkedListNode<T> nodeToInsert)
     {
         if(isEmpty()) {
             prepend(nodeToInsert);
@@ -73,7 +73,7 @@ public class DoublyLinkedListWithTail<T>
         size++;
     }
 
-    void deleteNode(DoublyLinkedListNode<T> nodeToDelete)
+    public void deleteNode(DoublyLinkedListNode<T> nodeToDelete)
     {
         if(isEmpty()) {
             return;
@@ -110,7 +110,7 @@ public class DoublyLinkedListWithTail<T>
         size--;
     }
 
-    DoublyLinkedListNode<T> findNode(T value)
+    public DoublyLinkedListNode<T> findNode(T value)
     {
         if(isEmpty()) {
             return null;
@@ -128,12 +128,12 @@ public class DoublyLinkedListWithTail<T>
         return null;
     }
 
-    boolean isEmpty()
+    public boolean isEmpty()
     {
         return head == null;
     }
 
-    void print()
+    public void print()
     {
         DoublyLinkedListNode<T> currentNode = head;
         
@@ -157,7 +157,7 @@ public class DoublyLinkedListWithTail<T>
         System.out.println("NULL\n=======");
     }
 
-    int getSize() {
+    public int getSize() {
         return size;
     }
 }

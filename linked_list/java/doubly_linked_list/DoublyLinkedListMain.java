@@ -2,7 +2,7 @@ package linked_list.java.doubly_linked_list;
 
 public class DoublyLinkedListMain
 {
-    public static void main(String[] args) {
+    public static void run() {
 
         DoublyLinkedList<Integer> linkedList = new DoublyLinkedList<Integer>();
         
