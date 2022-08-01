@@ -1,17 +1,24 @@
-class DoublyLinkedList<T>
+package linked_list.java.doubly_linked_list_with_tail;
+
+import linked_list.java.doubly_linked_list.DoublyLinkedListNode;
+
+public class DoublyLinkedListWithTail<T>
 {
-    DoublyNode<T> head;
+    DoublyLinkedListNode<T> head;
+    DoublyLinkedListNode<T> tail;
     int size;
 
-    DoublyLinkedList() {
+    DoublyLinkedListWithTail() {
         head = null;
+        tail = null;
         size = 0;
     }
 
-    void prepend(DoublyNode<T> nodeToPrepend)
+    void prepend(DoublyLinkedListNode<T> nodeToPrepend)
     {
         if(isEmpty()) {
             head = nodeToPrepend;
+            tail = nodeToPrepend;
             size++;
             return;
         }
@@ -25,27 +32,23 @@ class DoublyLinkedList<T>
         size++;
     }
 
-    void append(DoublyNode<T> nodeToAppend)
+    void append(DoublyLinkedListNode<T> nodeToAppend)
     {
         if(isEmpty()) {
             prepend(nodeToAppend);
             return;
         }
         
-        DoublyNode<T> currentNode = head;
-        
-        while(currentNode.nextNode != null) {
-            currentNode = currentNode.nextNode;
-        }
-
+        DoublyLinkedListNode<T> currentNode = tail;
         currentNode.nextNode = nodeToAppend;
         nodeToAppend.prevNode = currentNode;
         nodeToAppend.nextNode = null;
+        tail = nodeToAppend;
 
         size++;
     }
 
-    void insertAfterNode(DoublyNode<T> nodeToInsertAfter, DoublyNode<T> nodeToInsert)
+    void insertAfterNode(DoublyLinkedListNode<T> nodeToInsertAfter, DoublyLinkedListNode<T> nodeToInsert)
     {
         if(isEmpty()) {
             prepend(nodeToInsert);
@@ -70,23 +73,29 @@ class DoublyLinkedList<T>
         size++;
     }
 
-    void deleteNode(DoublyNode<T> nodeToDelete)
+    void deleteNode(DoublyLinkedListNode<T> nodeToDelete)
     {
         if(isEmpty()) {
             return;
         }
 
-        DoublyNode<T> currentNode = head;
+        DoublyLinkedListNode<T> currentNode = head;
 
         if(currentNode == nodeToDelete) {
             head = head.nextNode;
             head.prevNode = null;
+            if(isEmpty()) {
+                tail = null;
+            }
             size--;
             return;
         }
 
         if(nodeToDelete.nextNode == null) {
             nodeToDelete.prevNode.nextNode = null;
+            if(isEmpty()) {
+                head = null;
+            }
             size--;
             return;
         }
@@ -101,13 +110,13 @@ class DoublyLinkedList<T>
         size--;
     }
 
-    DoublyNode<T> findNode(T value)
+    DoublyLinkedListNode<T> findNode(T value)
     {
         if(isEmpty()) {
             return null;
         }
 
-        DoublyNode<T> currentNode = head;
+        DoublyLinkedListNode<T> currentNode = head;
         
         while(currentNode != null) {
             if(currentNode.data == value) {
@@ -126,7 +135,7 @@ class DoublyLinkedList<T>
 
     void print()
     {
-        DoublyNode<T> currentNode = head;
+        DoublyLinkedListNode<T> currentNode = head;
         
         System.out.printf("Size is: %d\n", size);
 
@@ -150,28 +159,5 @@ class DoublyLinkedList<T>
 
     int getSize() {
         return size;
-    }
-}
-
-class DoublyLinkedListMain
-{
-    public static void main(String[] args) {
-
-        DoublyLinkedList<Integer> linkedList = new DoublyLinkedList<Integer>();
-        
-        for (int i = 0; i < 5; i++) {
-            linkedList.prepend(new DoublyNode<Integer>(i+1));
-        }
-
-        linkedList.prepend(new DoublyNode<Integer>(100));
-        linkedList.append(new DoublyNode<Integer>(78));
-        linkedList.insertAfterNode(linkedList.findNode(3), new DoublyNode<Integer>(102));
-        linkedList.insertAfterNode(linkedList.findNode(1), new DoublyNode<Integer>(11));
-        linkedList.insertAfterNode(linkedList.findNode(78), new DoublyNode<Integer>(101));
-        linkedList.deleteNode(linkedList.findNode(1));
-        linkedList.deleteNode(linkedList.findNode(11));
-        linkedList.deleteNode(linkedList.findNode(101));
-
-        linkedList.print();
     }
 }

@@ -1,14 +1,16 @@
-class LinkedList<T>
+package linked_list.java.singly_linked_list;
+
+public class SinglyLinkedList<T>
 {
-    Node<T> head;
+    SinglyLinkedListNode<T> head;
     int size;
 
-    LinkedList() {
+    SinglyLinkedList() {
         head = null;
         size = 0;
     }
 
-    void prepend(Node<T> nodeToPrepend)
+    void prepend(SinglyLinkedListNode<T> nodeToPrepend)
     {
         nodeToPrepend.nextNode = head;
         
@@ -17,14 +19,14 @@ class LinkedList<T>
         size++;
     }
 
-    void append(Node<T> nodeToAppend)
+    void append(SinglyLinkedListNode<T> nodeToAppend)
     {
         if(isEmpty()) {
             prepend(nodeToAppend);
             return;
         }
         
-        Node<T> currentNode = head;
+        SinglyLinkedListNode<T> currentNode = head;
         
         while(currentNode.nextNode != null) {
             currentNode = currentNode.nextNode;
@@ -35,7 +37,7 @@ class LinkedList<T>
         size++;
     }
 
-    void insertAfterNode(Node<T> nodeToInsertAfter, Node<T> nodeToInsert)
+    void insertAfterNode(SinglyLinkedListNode<T> nodeToInsertAfter, SinglyLinkedListNode<T> nodeToInsert)
     {
         if(isEmpty()) {
             prepend(nodeToInsert);
@@ -47,13 +49,13 @@ class LinkedList<T>
         size++;
     }
 
-    void deleteNode(Node<T> nodeToDelete)
+    void deleteNode(SinglyLinkedListNode<T> nodeToDelete)
     {
         if(isEmpty()) {
             return;
         }
 
-        Node<T> currentNode = head;
+        SinglyLinkedListNode<T> currentNode = head;
 
         if(currentNode == nodeToDelete) {
             head = head.nextNode;
@@ -67,13 +69,13 @@ class LinkedList<T>
         size--;
     }
 
-    Node<T> findNode(T value)
+    SinglyLinkedListNode<T> findNode(T value)
     {
         if(isEmpty()) {
             return null;
         }
 
-        Node<T> currentNode = head;
+        SinglyLinkedListNode<T> currentNode = head;
         
         while(currentNode != null) {
             if(currentNode.data == value) {
@@ -92,7 +94,7 @@ class LinkedList<T>
 
     void print()
     {
-        Node<T> currentNode = head;
+        SinglyLinkedListNode<T> currentNode = head;
         
         System.out.print("HEAD -> ");
         
@@ -106,29 +108,5 @@ class LinkedList<T>
 
     int getSize() {
         return size;
-    }
-}
-
-class Main
-{
-    public static void main(String[] args) {
-
-        LinkedList<Integer> linkedList = new LinkedList<Integer>();
-        
-        for (int i = 0; i < 5; i++) {
-            linkedList.prepend(new Node<Integer>(i+1));
-        }
-
-        linkedList.prepend(new Node<Integer>(100));
-        linkedList.append(new Node<Integer>(78));
-        linkedList.insertAfterNode(linkedList.findNode(3), new Node<Integer>(102));
-        linkedList.insertAfterNode(linkedList.findNode(1), new Node<Integer>(11));
-        linkedList.insertAfterNode(linkedList.findNode(78), new Node<Integer>(101));
-        linkedList.deleteNode(linkedList.findNode(1));
-        linkedList.deleteNode(linkedList.findNode(11));
-        linkedList.deleteNode(linkedList.findNode(101));
-
-        System.out.println("Size is: " + linkedList.getSize() + "\n");
-        linkedList.print();
     }
 }
