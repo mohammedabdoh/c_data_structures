@@ -1,4 +1,6 @@
-class DoublyLinkedList<T>
+package queue.java;
+
+public class DoublyLinkedList<T>
 {
     Node<T> head;
     Node<T> tail;

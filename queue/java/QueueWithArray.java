@@ -1,3 +1,5 @@
+package queue.java;
+
 import java.util.ArrayList;
 
 class QueueUsingArray<T> {
@@ -80,7 +82,7 @@ class QueueUsingArray<T> {
     }
 }
 
-class QueueWithArray {
+public class QueueWithArray {
     public static void main(String[] args) {
         
         Queue<Integer> queue = new Queue<Integer>();

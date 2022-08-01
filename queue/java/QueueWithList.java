@@ -1,3 +1,5 @@
+package queue.java;
+
 class Queue<T> {
     private DoublyLinkedList<T> storage;
 
@@ -29,7 +31,7 @@ class Queue<T> {
     }
 }
 
-class QueueWithList {
+public class QueueWithList {
     public static void main(String[] args) {
         
         Queue<Integer> queue = new Queue<Integer>();

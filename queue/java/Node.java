@@ -1,4 +1,6 @@
-class Node<T>
+package queue.java;
+
+public class Node<T>
 {
     T data;
     Node<T> nextNode;
