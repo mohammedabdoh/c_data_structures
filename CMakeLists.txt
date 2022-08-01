@@ -25,12 +25,12 @@ add_executable(string_is_anagram_using_hash_table strings/string_is_anagram_usin
 add_executable(string_is_anagram_using_bitwise strings/string_is_anagram_using_bitwise.c)
 
 # linked list
-add_executable(linked_list linked-list/linked_list.c)
-add_executable(linked_list_cpp linked-list/linked_list.cpp)
-add_executable(doubly_linked_list linked-list/doubly_linked_list.c)
-add_executable(doubly_linked_list_cpp linked-list/doubly_linked_list.cpp)
-add_executable(doubly_linked_list_with_tail linked-list/doubly_linked_list_with_tail.c)
-add_executable(doubly_linked_list_with_tail_cpp linked-list/doubly_linked_list_with_tail.cpp)
+add_executable(linked_list linked_list/linked_list.c)
+add_executable(linked_list_cpp linked_list/linked_list.cpp)
+add_executable(doubly_linked_list linked_list/doubly_linked_list.c)
+add_executable(doubly_linked_list_cpp linked_list/doubly_linked_list.cpp)
+add_executable(doubly_linked_list_with_tail linked_list/doubly_linked_list_with_tail.c)
+add_executable(doubly_linked_list_with_tail_cpp linked_list/doubly_linked_list_with_tail.cpp)
 
 # stack
 add_executable(stack_using_list stack/stack.c)
